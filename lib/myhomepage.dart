@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 
+
 import 'styles/textstyle.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -25,8 +26,11 @@ class TutList {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   SharedPreferences prefs;
-  String un = "";
+
+  String username = '';
+  
   List<TutList> data = [
     TutList(
         fio: "Иванов Иван Иванович",
@@ -67,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
       
       drawer: MainDrawer(),
       appBar: AppBar(
-        title: Text(un),
+        title: Text(username),
       ),
       body: ListView(
         children: _buildList(),
@@ -120,18 +124,25 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 
-  username() async {
-      prefs = await SharedPreferences.getInstance();
-      setState(() {
-        un = prefs.getString('fname')+' '+prefs.getString('lname');
-      });
-      
+  _username() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+      username = prefs.getString('fname')+' '+prefs.getString('lname');
+    });
   }
+
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    username();
+    _username();
   }
+
+
+
+
+ 
+
+  
 }
