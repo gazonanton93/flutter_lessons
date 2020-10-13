@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lessons/detail.dart';
 import 'package:flutter_lessons/drawer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 
@@ -24,6 +25,8 @@ class TutList {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  SharedPreferences prefs;
+  String un = "";
   List<TutList> data = [
     TutList(
         fio: "Иванов Иван Иванович",
@@ -61,8 +64,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       drawer: MainDrawer(),
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(un),
+      ),
       body: ListView(
         children: _buildList(),
       ),
@@ -111,5 +117,21 @@ class _MyHomePageState extends State<MyHomePage> {
           }
         ))
         .toList();
+  }
+
+
+  username() async {
+      prefs = await SharedPreferences.getInstance();
+      setState(() {
+        un = prefs.getString('fname')+' '+prefs.getString('lname');
+      });
+      
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    username();
   }
 }
