@@ -50,4 +50,10 @@ abstract class ThemeText {
       ),],
 
       fontWeight: FontWeight.w400);
+
+  static const TextStyle splashHead = TextStyle(
+      fontFamily: 'Montserrat',
+      color: Colors.white,
+      fontSize: 30,
+      fontWeight: FontWeight.w400);
 }
