@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_lessons/Landing.dart';
 import 'package:flutter_lessons/styles/textstyle.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
 
@@ -28,7 +29,13 @@ class _SplashScreenState extends State<SplashScreen> {
             Container(),
             Column(
               children: [
-                Text('Flutter', style: ThemeText.splashHead,),
+                Text('Flutter\n', style: ThemeText.splashHead,),
+                
+                SpinKitChasingDots(
+                  color: Colors.yellow,
+                  size: 50,
+                )
+                
               ],
             ),
             Text('powered by Flutter\n', style: ThemeText.sliverText,)
