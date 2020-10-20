@@ -4,7 +4,7 @@ abstract class ThemeText {
   static const TextStyle progressHeader = TextStyle(
       fontFamily: 'Montserrat',
       color: Colors.white,
-      fontSize: 11,     
+      fontSize: 11,
       fontWeight: FontWeight.w600);
 
   static const TextStyle progressBody = TextStyle(
@@ -31,7 +31,6 @@ abstract class ThemeText {
       fontSize: 16,
       fontWeight: FontWeight.w400);
 
-
   static const TextStyle sliverText = TextStyle(
       fontFamily: 'Montserrat',
       color: Colors.white,
@@ -43,12 +42,12 @@ abstract class ThemeText {
       color: Colors.white,
       fontSize: 22,
       shadows: <Shadow>[
-      Shadow(
-        offset: Offset(1.0, 1.0),
-        blurRadius: 2.0,
-        color: Color.fromARGB(255, 0, 0, 0),
-      ),],
-
+        Shadow(
+          offset: Offset(1.0, 1.0),
+          blurRadius: 2.0,
+          color: Color.fromARGB(255, 0, 0, 0),
+        ),
+      ],
       fontWeight: FontWeight.w400);
 
   static const TextStyle splashHead = TextStyle(
@@ -56,4 +55,49 @@ abstract class ThemeText {
       color: Colors.white,
       fontSize: 30,
       fontWeight: FontWeight.w400);
+
+  static const TextStyle bottommenu = TextStyle(
+      fontFamily: 'Montserrat',
+      color: Colors.white,
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      decoration: TextDecoration.none
+      );
+
+  static const TextStyle logo = TextStyle(
+      fontFamily: 'MaterialIcons',
+      color: Colors.white,
+      fontSize: 40,
+      fontWeight: FontWeight.w500,
+      decoration: TextDecoration.none
+      );
+
+
+  static const TextStyle welcome = TextStyle(
+      fontFamily: 'Montserrat',
+      color: Colors.white,
+      fontSize: 30,
+      decoration: TextDecoration.none,
+      shadows: <Shadow>[
+        Shadow(
+          offset: Offset(.2, .2),
+          blurRadius: 2.0,
+          color: Color.fromARGB(255, 0, 0, 0),
+        ),
+      ],
+      fontWeight: FontWeight.w400);
+
+  static const TextStyle descr = TextStyle(
+      fontFamily: 'Montserrat',
+      color: Colors.white,
+      fontSize: 16,
+      decoration: TextDecoration.none,
+      shadows: <Shadow>[
+        Shadow(
+          offset: Offset(.5, .5),
+          blurRadius: 2.0,
+          color: Color.fromARGB(255, 0, 0, 0),
+        ),
+      ],
+      fontWeight: FontWeight.w300);
 }

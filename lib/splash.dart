@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_lessons/Landing.dart';
+import 'package:flutter_lessons/homescreen.dart';
+
 import 'package:flutter_lessons/styles/textstyle.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -18,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     Timer(Duration(seconds: 2), () {
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> Landing()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Home()));
     });
     return Scaffold(
       backgroundColor: Colors.blue,
@@ -32,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 Text('Flutter\n', style: ThemeText.splashHead,),
                 
                 SpinKitChasingDots(
-                  color: Colors.yellow,
+                  color: Colors.white,
                   size: 50,
                 )
                 
