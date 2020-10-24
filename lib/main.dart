@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lessons/Landing.dart';
 
-import 'package:flutter_lessons/myhomepage.dart';
 
 import 'package:flutter_lessons/splash.dart';
 

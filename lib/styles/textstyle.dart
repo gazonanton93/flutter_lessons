@@ -100,4 +100,10 @@ abstract class ThemeText {
         ),
       ],
       fontWeight: FontWeight.w300);
+
+  static const TextStyle grid = TextStyle(
+      fontFamily: 'Montserrat',
+      color: Colors.black54,
+      fontSize: 8,
+      fontWeight: FontWeight.w400);
 }

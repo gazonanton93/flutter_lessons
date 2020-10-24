@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lessons/grid.dart';
+
 import 'package:flutter_lessons/styles/textstyle.dart';
 
 class Home extends StatefulWidget {
@@ -49,11 +51,20 @@ class _HomeState extends State<Home> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Row(
-                  children: [
-                    Text('LOGIN', style: ThemeText.bottommenu,),
-                    Icon(Icons.keyboard_arrow_right, color: Colors.white,)
-                  ],
+                GestureDetector(
+                  onTap:() {
+Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          GridScreen()));
+                  } ,
+                                  child: Row(
+                      children: [
+                        Text('LOGIN', style: ThemeText.bottommenu,),
+                        Icon(Icons.keyboard_arrow_right, color: Colors.white,)
+                      ],
+                    ),
                 ),
                 Row(
                   children: [

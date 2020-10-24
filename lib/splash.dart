@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_lessons/Landing.dart';
+
 import 'package:flutter_lessons/homescreen.dart';
 
 import 'package:flutter_lessons/styles/textstyle.dart';

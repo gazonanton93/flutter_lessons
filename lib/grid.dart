@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lessons/detail.dart';
-import 'package:flutter_lessons/drawer.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import 'styles/textstyle.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+
+class GridScreen extends StatefulWidget {
+  
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _GridScreenState createState() => _GridScreenState();
 }
 
 class TutList {
@@ -22,11 +19,8 @@ class TutList {
   TutList({this.fio, this.place, this.date, this.img, this.descr});
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  SharedPreferences prefs;
 
-  String username = '';
-
+class _GridScreenState extends State<GridScreen> {
   List<TutList> data = [
     TutList(
         fio: "Иванов Иван Иванович",
@@ -85,104 +79,33 @@ class _MyHomePageState extends State<MyHomePage> {
         descr:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MainDrawer(),
-      appBar: AppBar(
-        title: Text(username),
-      ),
-      body: ListView(
+      appBar: AppBar(),
+      body: GridView.count(
+        padding: const EdgeInsets.all(10),
+        crossAxisSpacing: 15,
+        mainAxisSpacing: 20,
+        crossAxisCount: 3,
         children: _buildList(),
-      ),
+        ),
     );
   }
 
+
   List<Widget> _buildList() {
-    return data
-        .map((TutList e) => InkWell(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: Row(
-                  children: [
-                    Expanded(
-                        flex: 3,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(10),
-                              topLeft: Radius.circular(10)),
-                          child: Container(
-                            child: Image.asset(
-                              e.img,
-                              fit: BoxFit.cover,
-                              height: 200,
-                              width: 90,
-                            ),
-                          ),
-                        )),
-                    Expanded(
-                        flex: 7,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(10),
-                              topRight: Radius.circular(10)),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(colors: [
-                              Color.fromRGBO(114, 124, 245, 1),
-                              Color.fromRGBO(114, 124, 245, 0.75)
-                            ])),
-                            height: 200,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text(
-                                    e.fio,
-                                    style: ThemeText.ercCardheader,
-                                  ),
-                                  Text(
-                                    e.place,
-                                    style: ThemeText.ercCard,
-                                  ),
-                                  Text(
-                                    e.date,
-                                    style: ThemeText.ercCard,
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ))
-                  ],
-                ),
-              ),
-            ),
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          Detail(e.fio, e.place, e.date, e.img, e.descr)));
-            }))
-        .toList();
-  }
-
-  _username() async {
-    prefs = await SharedPreferences.getInstance();
-    setState(() {
-      username = prefs.getString('fname') + ' ' + prefs.getString('lname');
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _username();
+    return data.map((TutList e) => Container(
+      child: Column(
+        children: [
+          CircleAvatar(
+            backgroundImage: AssetImage(e.img),
+            minRadius: 50,
+            maxRadius: 50,
+          ),
+          Text(e.place)
+        ],
+      ),
+    )).toList();
   }
 }

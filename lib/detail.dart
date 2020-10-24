@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lessons/styles/textstyle.dart';
 
 
+// ignore: must_be_immutable
 class Detail extends StatefulWidget {
   String fio;
   String place;
